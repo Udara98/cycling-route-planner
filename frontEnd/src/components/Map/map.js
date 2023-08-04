@@ -1,5 +1,5 @@
 import React from 'react';
-import { GoogleMap, useJsApiLoader, Marker,Autocomplete } from "@react-google-maps/api";
+import { GoogleMap, useJsApiLoader, Marker,Autocomplete,DirectionsRenderer } from "@react-google-maps/api";
 import Route from '../Route/Route';
 
 const containerStyle = {
@@ -10,6 +10,13 @@ const containerStyle = {
 function MyComponent() {
   const [latitude, setLatitude] = React.useState("");
   const [longitude, setLongitude] = React.useState("");
+  const [directionsResponse, setDirectionsResponse] = React.useState(null); 
+
+  const handleDirectionsResponse = (response) => {
+    setDirectionsResponse(response);
+  };
+
+
 
   const { isLoaded } = useJsApiLoader({
     id: 'google-map-script',
@@ -46,7 +53,9 @@ function MyComponent() {
       onUnmount={onUnmount}
     >
       <Marker position={center} />
-      <Route google={window.google} Autocomplete={Autocomplete} />
+      {directionsResponse &&<DirectionsRenderer directions={directionsResponse}/>}
+      <Route google={window.google} Autocomplete={Autocomplete} onDirectionsResponse={handleDirectionsResponse} // Pass the callback
+      />
     </GoogleMap>
   ) : <></>;
 }

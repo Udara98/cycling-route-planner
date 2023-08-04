@@ -9,7 +9,7 @@ const drawerWidth = 240;
 
 const openedMixin = (theme) => ({
   width: drawerWidth,
-  backgroundColor: "#e3f2fd",
+  backgroundColor: "#bbdefb",
   transition: theme.transitions.create("width", {
     easing: theme.transitions.easing.sharp,
     duration: theme.transitions.duration.enteringScreen,
@@ -18,7 +18,7 @@ const openedMixin = (theme) => ({
 });
 
 const closedMixin = (theme) => ({
-  backgroundColor: "#e3f2fd",
+  backgroundColor: "#bbdefb",
   transition: theme.transitions.create("width", {
     easing: theme.transitions.easing.sharp,
     duration: theme.transitions.duration.leavingScreen,
