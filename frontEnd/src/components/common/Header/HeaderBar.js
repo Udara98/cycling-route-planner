@@ -11,7 +11,7 @@ import styled from "@emotion/styled";
 
 const Header = styled(AppBar)`
   z-index: 1201;
-  background-color: #e3f2fd;
+  background-color: #bbdefb;
   color: #283593;
   height: 55px;
   -webkit-box-shadow: inset 0 -1px 0 0 #dadce0;
